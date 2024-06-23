@@ -14,7 +14,11 @@ module.exports.createNewForm = async (req, res, next) => {
   try{
     let address = req.body.listing.location;
     let map_url = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(address);
-    const response = await axios.get(map_url);
+    const response = await axios.get(map_url, {
+      headers: {
+        'User-Agent': 'Wanderlust/1.0 (nsv.shiva30@gmail.com)' // Replace with your actual app name and email
+      }
+    });
     const results = response.data;
     // console.log(results);
     console.log(results[0].lat," ",results[0].lon);
