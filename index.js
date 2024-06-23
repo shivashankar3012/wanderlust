@@ -81,7 +81,7 @@ app.use((req,res,next)=>{
   res.locals.error = req.flash("error");
   // console.log("request user",req.user);
   res.locals.currUser = req.user;
-  console.log(res.locals.currUser);
+  // console.log(res.locals.currUser);
   next();
 });
 

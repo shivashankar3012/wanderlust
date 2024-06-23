@@ -33,6 +33,7 @@ module.exports.createNewForm = async (req, res, next) => {
       lat = 28.6139;
       lon = 77.2088;
     } 
+    console.log(results[0].lat," ",results[0].lon);
     let newlist = new listings({
       title: req.body.listing.title,
       description: req.body.listing.description,
