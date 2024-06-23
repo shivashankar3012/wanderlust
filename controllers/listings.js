@@ -21,7 +21,7 @@ module.exports.createNewForm = async (req, res, next) => {
     let url = req.file.path;
     let filename = req.file.filename;
     // console.log(url,filename);
-    let lan, lat;
+    let lon, lat;
     if (results.length > 0){
       lat = results[0].lat;
       lon = results[0].lon;
