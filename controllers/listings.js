@@ -16,6 +16,7 @@ module.exports.createNewForm = async (req, res, next) => {
     let map_url = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(address);
     const response = await axios.get(map_url);
     const results = response.data;
+    // console.log(results);
     console.log(results[0].lat," ",results[0].lon);
     let url = req.file.path;
     let filename = req.file.filename;

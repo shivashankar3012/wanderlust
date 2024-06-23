@@ -28,6 +28,15 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "/public")));
 
+async function main(){
+  await mongoose.connect(dbUrl);
+}
+main().then(()=>{
+  console.log("Connected to Database");
+}).catch((err)=>{
+  console.log(err);
+})
+
 const store =  MongoStore.create({
   mongoUrl: dbUrl,
   crypto:{
@@ -53,15 +62,9 @@ const sessionOptions = {
 }
 
 
-main().then(()=>{
-  console.log("Connected to Database");
-}).catch((err)=>{
-  console.log(err);
-})
 
-async function main(){
-  await mongoose.connect(dbUrl);
-}
+
+
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -77,7 +80,7 @@ app.use((req,res,next)=>{
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   // console.log("request user",req.user);
-  res.locals.currUser = req.user;
+  res.locals.currUser = req.session.user;
   // console.log(res.locals.currUser);
   next();
 });
