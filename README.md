@@ -14,5 +14,5 @@ Wanderlust is a project aimed at creating a clone of the popular Airbnb platform
 
 - **Frontend**: HTML, CSS, JavaScript, React (or your frontend framework of choice)
 - **Backend**: Node.js, Express.js, MongoDB (or your backend framework and database of choice)
-- **Authentication**: JSON Web Tokens (JWT) for authentication and authorization
-- **Cloud Services**: Integration with cloud services like Cloudinary for image storage
+- **Authentication**: JSON Web Tokens (JWT) for authentication and authorization.
+- **Cloud Services**: Integration with cloud services like Cloudinary for image storage.
